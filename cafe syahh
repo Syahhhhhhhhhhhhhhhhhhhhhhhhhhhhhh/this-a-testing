@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Syahh - Oder Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff6347;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .menu-section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .menu-item button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu-item button:hover {
+            background-color: #ff4500;
+        }
+        footer {
+            background-color: #ff6347;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .order-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .order-form input, .order-form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .order-form button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .order-form button:hover {
+            background-color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome To Cafe Syahh</h1>
+    <p>Order Your Food In Online!</p>
+</header>
+
+<section class="menu-section">
+    <h2>Menu Makanan</h2>
+
+    <div class="menu-item">
+        <span>Nasi Goreng Spesial</span>
+        <span>RM 8.00</span>
+        <button onclick="addToCart('Nasi Goreng Spesial')">Pesan</button>
+    </div>
+
+    <div class="menu-item">
+        <span>Mie Ayam</span>
+        <span>Rm 5.00</span>
+        <button onclick="addToCart('Mie Ayam')">Pesan</button>
+    </div>
+
+    <div class="menu-item">
+        <span>Sate Ayam</span>
+        <span>Rm 10.00</span>
+        <button onclick="addToCart('Sate Ayam')">Pesan</button>
+    </div>
+
+    <div class="menu-item">
+        <span>Teh Ais</span>
+        <span>Rp 3.00</span>
+        <button onclick="addToCart('Teh Ais')">Pesan</button>
+    </div>
+</section>
+
+<section class="menu-section">
+    <h2>Your Order list</h2>
+    <ul id="order-list"></ul>
+</section>
+
+<section class="menu-section">
+    <h2>Formulir Pemesanan</h2>
+    <form class="order-form">
+        <input type="text" placeholder="Nama Kamu" id="name" required>
+        <textarea placeholder="Alamat Pengiriman" id="address" required></textarea>
+        <input type="text" placeholder="Nomor Telepon" id="phone" required>
+        <button type="button" onclick="submitOrder()">Kirim Pesanan</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Cafe Syahh - Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+    let orders = [];
+
+    function addToCart(item) {
+        orders.push(item);
+        updateOrderList();
+    }
+
+    function updateOrderList() {
+        const orderList = document.getElementById('order-list');
+        orderList.innerHTML = '';
+        orders.forEach((order, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${index + 1}. ${order}`;
+            orderList.appendChild(listItem);
+        });
+    }
+
+    function submitOrder() {
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phone').value;
+
+        if (name && address && phone && orders.length > 0) {
+            alert(`Terima kasih, ${name}! Pesanan Anda: ${orders.join(', ')} akan dikirim ke ${address}. Kami akan menghubungi Anda di nomor ${phone}.`);
+            // Reset form and orders
+            document.querySelector('.order-form').reset();
+            orders = [];
+            updateOrderList();
+        } else {
+            alert('Mohon lengkapi semua detail pemesanan dan tambahkan makanan ke dalam pesanan.');
+        }
+    }
+</script>
+
+</body>
+</html>
