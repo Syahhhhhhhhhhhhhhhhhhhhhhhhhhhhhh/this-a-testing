@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafe Syahh - Oder Online</title>
+    <title>Cafe Syahh - Pesan Online</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,8 +82,8 @@
 <body>
 
 <header>
-    <h1>Welcome To Cafe Syahh</h1>
-    <p>Order Your Food In Online!</p>
+    <h1>Selamat Datang di Cafe Syahh</h1>
+    <p>Pesan makanan favoritmu secara online!</p>
 </header>
 
 <section class="menu-section">
@@ -91,31 +91,31 @@
 
     <div class="menu-item">
         <span>Nasi Goreng Spesial</span>
-        <span>RM 8.00</span>
+        <span>Rp 25.000</span>
         <button onclick="addToCart('Nasi Goreng Spesial')">Pesan</button>
     </div>
 
     <div class="menu-item">
         <span>Mie Ayam</span>
-        <span>Rm 5.00</span>
+        <span>Rp 20.000</span>
         <button onclick="addToCart('Mie Ayam')">Pesan</button>
     </div>
 
     <div class="menu-item">
         <span>Sate Ayam</span>
-        <span>Rm 10.00</span>
+        <span>Rp 30.000</span>
         <button onclick="addToCart('Sate Ayam')">Pesan</button>
     </div>
 
     <div class="menu-item">
-        <span>Teh Ais</span>
-        <span>Rp 3.00</span>
-        <button onclick="addToCart('Teh Ais')">Pesan</button>
+        <span>Es Teh Manis</span>
+        <span>Rp 5.000</span>
+        <button onclick="addToCart('Es Teh Manis')">Pesan</button>
     </div>
 </section>
 
 <section class="menu-section">
-    <h2>Your Order list</h2>
+    <h2>Pesanan Kamu</h2>
     <ul id="order-list"></ul>
 </section>
 
